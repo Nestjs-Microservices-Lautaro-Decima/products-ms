@@ -6,4 +6,6 @@ export class Product {
   public description: string;
 
   public price: string;
+
+  public deleted: boolean;
 }
