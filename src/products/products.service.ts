@@ -1,13 +1,9 @@
-import {
-  Injectable,
-  Logger,
-  NotFoundException,
-  OnModuleInit,
-} from '@nestjs/common';
+import { Injectable, Logger, OnModuleInit } from '@nestjs/common';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
 import { PrismaClient } from '@prisma/client';
 import { PaginationDto } from 'src/common';
+import { RpcException } from '@nestjs/microservices';
 
 @Injectable()
 export class ProductsService extends PrismaClient implements OnModuleInit {
@@ -55,8 +51,7 @@ export class ProductsService extends PrismaClient implements OnModuleInit {
       where: { id, available: true },
     });
 
-    if (!product)
-      throw new NotFoundException(`Product whith id #${id} not found.`);
+    if (!product) throw new RpcException(`Product whith id #${id} not found.`);
 
     return product;
   }
