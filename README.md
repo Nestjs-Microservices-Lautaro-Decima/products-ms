@@ -43,6 +43,12 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
+## Generate migration Prisma:
+
+```
+npx prisma generate
+```
+
 ### Generate migration prisma ORM:
 
 ```
