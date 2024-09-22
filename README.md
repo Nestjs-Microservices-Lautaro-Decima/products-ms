@@ -54,3 +54,11 @@ npx prisma generate
 ```
 npx prisma migrate dev --name init
 ```
+
+## PROD
+
+Ejecutar:
+
+```
+ docker build -f Dockerfile.prod -t client-gateway .
+```
